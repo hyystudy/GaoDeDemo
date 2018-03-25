@@ -15,5 +15,6 @@
     <item
         android:id="@+id/action_"
         android:title="@string/latlon_to_location"
+        android:orderInCategory="100"
         app:showAsAction="never" />
 </menu>

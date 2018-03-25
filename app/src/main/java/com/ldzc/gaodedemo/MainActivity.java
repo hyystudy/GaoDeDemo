@@ -54,10 +54,10 @@ public class MainActivity extends AppCompatActivity implements AMap.OnMyLocation
         setSupportActionBar(toolbar);
 
 
-
         mMapView = findViewById(R.id.map);
         //在activity执行onCreate时执行mMapView.onCreate(savedInstanceState)，创建地图
         mMapView.onCreate(savedInstanceState);
+
 
         if (aMap == null) {
             aMap = mMapView.getMap();
@@ -88,6 +88,27 @@ public class MainActivity extends AppCompatActivity implements AMap.OnMyLocation
         getMyLocationName();
 
 
+        aMap.setInfoWindowAdapter(new AMap.InfoWindowAdapter() {
+            @Override
+            public View getInfoWindow(Marker marker) {
+                return null;
+            }
+
+            @Override
+            public View getInfoContents(Marker marker) {
+                View infoWindow = LayoutInflater.from(MainActivity.this).inflate(R.layout.info_window_layout, null);
+                render(marker, infoWindow);
+                return infoWindow;
+            }
+
+
+        });
+        LatLng latLng = new LatLng(39.988881,116.3339);
+        Marker marker = aMap.addMarker(new MarkerOptions().position(latLng));
+        marker.setInfoWindowEnable(true);
+        marker.setFlat(true);
+        marker.showInfoWindow();
+        getMyLocationName();
     }
 
     private void getMyLocationName() {
@@ -107,6 +128,9 @@ public class MainActivity extends AppCompatActivity implements AMap.OnMyLocation
 
         aMap.setMyLocationStyle(myLocationStyle);//设置定位蓝点的Style
         aMap.getUiSettings().setMyLocationButtonEnabled(true);//设置默认定位按钮是否显示，非必需设置。
+        myLocationStyle.showMyLocation(false);
+        aMap.setMyLocationStyle(myLocationStyle);//设置定位蓝点的Style
+        //aMap.getUiSettings().setMyLocationButtonEnabled(false);//设置默认定位按钮是否显示，非必需设置。
         aMap.setMyLocationEnabled(true);// 设置为true表示启动显示定位蓝点，false表示隐藏定位蓝点并不进行定位，默认是false。
     }
 
@@ -152,8 +176,9 @@ public class MainActivity extends AppCompatActivity implements AMap.OnMyLocation
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+
         if (id == R.id.action_add_marker) {
-            return true;
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -226,5 +251,6 @@ public class MainActivity extends AppCompatActivity implements AMap.OnMyLocation
                     }
                 });
         }
+
     }
 }

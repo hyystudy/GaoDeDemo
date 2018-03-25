@@ -201,30 +201,30 @@ public class MainActivity extends AppCompatActivity implements AMap.OnMyLocation
     @Override
     public void onGeocodeSearched(GeocodeResult geocodeResult, int i) {
         //解析result获取坐标信息
-        List<GeocodeAddress> geocodeAddressList = geocodeResult.getGeocodeAddressList();
-        if (geocodeAddressList != null && geocodeAddressList.size() > 0){
-            GeocodeAddress geocodeAddress = geocodeAddressList.get(0);
-            LatLonPoint latLonPoint = geocodeAddress.getLatLonPoint();
-            Log.d(TAG, "onGeocodeSearched: AdCode-->" + geocodeAddress.getAdcode());
-            Log.d(TAG, "onGeocodeSearched: Province-->" + geocodeAddress.getProvince());
-            Log.d(TAG, "onGeocodeSearched: City-->" + geocodeAddress.getCity());
-            Log.d(TAG, "onGeocodeSearched: District-->" + geocodeAddress.getDistrict());
-            Log.d(TAG, "onGeocodeSearched: LatLonPoint-->" + latLonPoint.getLatitude() + "," + latLonPoint.getLongitude());
-            LatLng latLng = new LatLng(latLonPoint.getLatitude(), latLonPoint.getLongitude());
-            MapUtil.addMarkerToMap(aMap, latLng, BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_round));
-            CameraUpdate mCameraUpdate = CameraUpdateFactory.newCameraPosition(
-                    new CameraPosition(latLng,15,0,0));
-            aMap.animateCamera(mCameraUpdate, new AMap.CancelableCallback() {
-                @Override
-                public void onFinish() {
+            List<GeocodeAddress> geocodeAddressList = geocodeResult.getGeocodeAddressList();
+            if (geocodeAddressList != null && geocodeAddressList.size() > 0){
+                GeocodeAddress geocodeAddress = geocodeAddressList.get(0);
+                LatLonPoint latLonPoint = geocodeAddress.getLatLonPoint();
+                Log.d(TAG, "onGeocodeSearched: AdCode-->" + geocodeAddress.getAdcode());
+                Log.d(TAG, "onGeocodeSearched: Province-->" + geocodeAddress.getProvince());
+                Log.d(TAG, "onGeocodeSearched: City-->" + geocodeAddress.getCity());
+                Log.d(TAG, "onGeocodeSearched: District-->" + geocodeAddress.getDistrict());
+                Log.d(TAG, "onGeocodeSearched: LatLonPoint-->" + latLonPoint.getLatitude() + "," + latLonPoint.getLongitude());
+                LatLng latLng = new LatLng(latLonPoint.getLatitude(), latLonPoint.getLongitude());
+                MapUtil.addMarkerToMap(aMap, latLng, BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_round));
+                CameraUpdate mCameraUpdate = CameraUpdateFactory.newCameraPosition(
+                        new CameraPosition(latLng,15,0,0));
+                aMap.animateCamera(mCameraUpdate, new AMap.CancelableCallback() {
+                    @Override
+                    public void onFinish() {
 
-                }
+                    }
 
-                @Override
-                public void onCancel() {
+                    @Override
+                    public void onCancel() {
 
-                }
-            });
+                    }
+                });
         }
     }
 }

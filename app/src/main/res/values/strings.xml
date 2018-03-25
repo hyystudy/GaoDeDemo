@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GaoDeDemo</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_add_marker">添加Marker</string>
+    <string name="location_to_latlon">位置转换经纬度</string>
+    <string name="latlon_to_location">经纬度转位置描述</string>
+</resources>

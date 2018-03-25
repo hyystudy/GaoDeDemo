@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ldzc.gaodedemo.MainActivity">
+    <item
+        android:id="@+id/action_add_marker"
+        android:title="@string/action_add_marker"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_add_infowindow"
+        android:title="@string/location_to_latlon"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_"
+        android:title="@string/latlon_to_location"
+        app:showAsAction="never" />
+</menu>

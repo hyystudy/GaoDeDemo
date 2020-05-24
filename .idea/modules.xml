@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GaoDeDemo.iml" filepath="$PROJECT_DIR$/GaoDeDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/GaoDeDemo-app.iml" filepath="$PROJECT_DIR$/app/GaoDeDemo-app.iml" group="GaoDeDemo/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/work-GaoDeDemo.iml" filepath="$PROJECT_DIR$/work-GaoDeDemo.iml" group="GaoDeDemo" />
     </modules>
   </component>
 </project>
